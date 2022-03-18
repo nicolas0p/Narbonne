@@ -15,13 +15,19 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(asio CONFIG REQUIRED)
 
 add_subdirectory(src)
 
-add_subdirectory(extern)
+#add_subdirectory(extern)
 
 target_link_libraries(
     Narbonne PRIVATE
     Qt6::Widgets
+)
+
+target_link_libraries(
+    Narbonne PRIVATE
     asio
+    asio::asio
 )
